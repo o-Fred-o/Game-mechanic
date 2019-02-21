@@ -1,0 +1,19 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://assets/ground.png" type="Texture" id=1]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Ground" type="Sprite" parent="."]
+position = Vector2( 20, -20 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 32, 32 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Ground"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Ground/StaticBody2D"]
+position = Vector2( 0.0874004, -0.175104 )
+scale = Vector2( 0.996622, 1.00672 )
+polygon = PoolVector2Array( -16.1749, -16.2171, 16.1677, -16.2171, 16.1677, 16.3003, -16.1749, 16.3003 )
+
