@@ -2,12 +2,14 @@
 
 Inspired by https://gamemechanicexplorer.com/
 
-Todo :
-
 - Walking
-  - Basic walking , Acceleration, Jumping, Drag
-    - voir kinematicBody2D ou Area2D ? ... test pour acceleration
+  - Basic walking , Acceleration, Jumping, Drag, Double jump
+    - voir kinematicBody2D ou Area2D ?
 - Bullets
+  - TODO
 - Spaceship
+  - TODO
 - Following 
+  - TODO
 - Homing
+  - TODO
