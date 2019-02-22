@@ -46,10 +46,28 @@ func get_input():
     else:
          if !drag: velocity.x=0
          else:             
-             if velocity.x>0: velocity.x -= accel_speed
-             if velocity.x<0: velocity.x += accel_speed
+             if velocity.x>0: velocity.x = clamp(velocity.x-accel_speed,0,max_speed)
+             if velocity.x<0: velocity.x = clamp(velocity.x+accel_speed,-max_speed,0) 
 
 func _physics_process(delta):
     velocity.y += gravity * delta
     get_input()
     velocity = move_and_slide(velocity, Vector2(0, -1))
+
+func _on_Jump_toggled(button_pressed):
+    jump = !jump
+
+func _on_Acceleration_toggled(button_pressed):
+    acceleration = !acceleration
+
+func _on_Drag_toggled(button_pressed):
+    drag = !drag
+
+func _on_DoubleJump_toggled(button_pressed):
+    double_jump = !double_jump
+
+func _on_MaxSpeed_HSlider_value_changed(value):
+    max_speed= 5*value
+
+func _on_JumpSpeed_HSlider_value_changed(value):
+    jump_speed = 5* -value

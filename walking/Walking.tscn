@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://walking/basictiles.tres" type="TileSet" id=1]
 [ext_resource path="res://walking/Player.gd" type="Script" id=2]
 [ext_resource path="res://assets/player.png" type="Texture" id=3]
 [ext_resource path="res://walking/Fps.gd" type="Script" id=4]
+[ext_resource path="res://walking/Values.gd" type="Script" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 11.9445, 17.6845 )
@@ -15,7 +16,7 @@ position = Vector2( -0.0358353, 599.6 )
 tile_set = ExtResource( 1 )
 cell_size = Vector2( 32, 32 )
 format = 1
-tile_data = PoolIntArray( -65536, 0, 0, -65535, 0, 0, -65534, 0, 0, -65533, 0, 0, -65532, 0, 0, -65531, 0, 0, -65530, 0, 0, -65529, 0, 0, -65528, 0, 0, -65527, 0, 0, -65526, 0, 0, -65525, 0, 0, -65524, 0, 0, -65523, 0, 0, -65522, 0, 0, -65521, 0, 0, -65520, 0, 0, -65519, 0, 0, -65518, 0, 0, -65517, 0, 0, -65516, 0, 0, -65515, 0, 0, -65514, 0, 0 )
+tile_data = PoolIntArray( -65536, 0, 0, -65535, 0, 0, -65534, 0, 0, -65533, 0, 0, -65532, 0, 0, -65531, 0, 0, -65530, 0, 0, -65529, 0, 0, -65528, 0, 0, -65527, 0, 0, -65526, 0, 0, -65525, 0, 0, -65524, 0, 0, -65523, 0, 0, -65522, 0, 0, -65521, 0, 0, -65520, 0, 0, -65519, 0, 0, -65518, 0, 0, -65517, 0, 0, -65516, 0, 0, -65515, 0, 0, -65514, 0, 0, -65513, 0, 0, -65512, 0, 0, -65511, 0, 0, -65510, 0, 0, -65509, 0, 0, -65508, 0, 0, -65507, 0, 0, -65506, 0, 0, -65505, 0, 0 )
 
 [node name="Player" type="KinematicBody2D" parent="."]
 position = Vector2( 50, -80 )
@@ -40,3 +41,104 @@ margin_right = 40.0
 margin_bottom = 14.0
 script = ExtResource( 4 )
 
+[node name="EditProperty" type="Container" parent="CanvasLayer"]
+editor/display_folded = true
+margin_left = 83.6001
+margin_top = 1.9
+margin_right = 233.6
+margin_bottom = 81.9
+
+[node name="Jump" type="CheckBox" parent="CanvasLayer/EditProperty"]
+margin_right = 24.0
+margin_bottom = 24.0
+focus_mode = 0
+pressed = true
+enabled_focus_mode = 0
+text = "Jump"
+
+[node name="Acceleration" type="CheckBox" parent="CanvasLayer/EditProperty"]
+margin_top = 20.0
+margin_right = 108.0
+margin_bottom = 44.0
+focus_mode = 0
+pressed = true
+enabled_focus_mode = 0
+text = "Acceleration"
+
+[node name="Drag" type="CheckBox" parent="CanvasLayer/EditProperty"]
+margin_top = 40.0
+margin_right = 57.0
+margin_bottom = 64.0
+focus_mode = 0
+pressed = true
+enabled_focus_mode = 0
+text = "Drag"
+
+[node name="DoubleJump" type="CheckBox" parent="CanvasLayer/EditProperty"]
+margin_top = 60.0
+margin_right = 110.0
+margin_bottom = 84.0
+focus_mode = 0
+pressed = true
+enabled_focus_mode = 0
+text = "Double Jump"
+
+[node name="Values" type="Container" parent="CanvasLayer"]
+margin_left = 233.7
+margin_top = 9.50002
+margin_right = 333.7
+margin_bottom = 89.5
+script = ExtResource( 5 )
+
+[node name="MaxSpeed_Label" type="Label" parent="CanvasLayer/Values"]
+margin_right = 81.0
+margin_bottom = 14.0
+rect_pivot_offset = Vector2( -543.7, 280.5 )
+text = "Max Speed: "
+
+[node name="MaxSpeed_Value" type="Label" parent="CanvasLayer/Values"]
+margin_left = 80.0
+margin_right = 120.0
+margin_bottom = 14.0
+rect_pivot_offset = Vector2( -543.7, 280.5 )
+text = "100 %"
+
+[node name="MaxSpeed_HSlider" type="HSlider" parent="CanvasLayer/Values"]
+margin_top = 15.0
+margin_right = 100.0
+margin_bottom = 31.0
+focus_mode = 0
+value = 100.0
+focus_mode = 0
+
+[node name="JumpSpeed_Label" type="Label" parent="CanvasLayer/Values"]
+margin_top = 40.0
+margin_right = 81.0
+margin_bottom = 54.0
+rect_pivot_offset = Vector2( -543.7, 280.5 )
+text = "Jump Speed: "
+
+[node name="JumpSpeed_Value" type="Label" parent="CanvasLayer/Values"]
+margin_left = 80.0
+margin_top = 40.0
+margin_right = 120.0
+margin_bottom = 54.0
+rect_pivot_offset = Vector2( -543.7, 280.5 )
+text = "100 %"
+
+[node name="JumpSpeed_HSlider" type="HSlider" parent="CanvasLayer/Values"]
+margin_top = 55.0
+margin_right = 100.0
+margin_bottom = 71.0
+focus_mode = 0
+value = 100.0
+focus_mode = 0
+
+[connection signal="toggled" from="CanvasLayer/EditProperty/Jump" to="Player" method="_on_Jump_toggled"]
+[connection signal="toggled" from="CanvasLayer/EditProperty/Acceleration" to="Player" method="_on_Acceleration_toggled"]
+[connection signal="toggled" from="CanvasLayer/EditProperty/Drag" to="Player" method="_on_Drag_toggled"]
+[connection signal="toggled" from="CanvasLayer/EditProperty/DoubleJump" to="Player" method="_on_DoubleJump_toggled"]
+[connection signal="value_changed" from="CanvasLayer/Values/MaxSpeed_HSlider" to="CanvasLayer/Values" method="_on_MaxSpeed_HSlider_value_changed"]
+[connection signal="value_changed" from="CanvasLayer/Values/MaxSpeed_HSlider" to="Player" method="_on_MaxSpeed_HSlider_value_changed"]
+[connection signal="value_changed" from="CanvasLayer/Values/JumpSpeed_HSlider" to="CanvasLayer/Values" method="_on_JumpSpeed_HSlider_value_changed"]
+[connection signal="value_changed" from="CanvasLayer/Values/JumpSpeed_HSlider" to="Player" method="_on_JumpSpeed_HSlider_value_changed"]
