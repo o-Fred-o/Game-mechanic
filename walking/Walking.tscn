@@ -109,6 +109,7 @@ margin_right = 100.0
 margin_bottom = 31.0
 focus_mode = 0
 value = 100.0
+ticks_on_borders = false
 focus_mode = 0
 
 [node name="JumpSpeed_Label" type="Label" parent="CanvasLayer/Values"]
@@ -132,13 +133,14 @@ margin_right = 100.0
 margin_bottom = 71.0
 focus_mode = 0
 value = 100.0
+ticks_on_borders = false
 focus_mode = 0
 
 [connection signal="toggled" from="CanvasLayer/EditProperty/Jump" to="Player" method="_on_Jump_toggled"]
 [connection signal="toggled" from="CanvasLayer/EditProperty/Acceleration" to="Player" method="_on_Acceleration_toggled"]
 [connection signal="toggled" from="CanvasLayer/EditProperty/Drag" to="Player" method="_on_Drag_toggled"]
 [connection signal="toggled" from="CanvasLayer/EditProperty/DoubleJump" to="Player" method="_on_DoubleJump_toggled"]
-[connection signal="value_changed" from="CanvasLayer/Values/MaxSpeed_HSlider" to="CanvasLayer/Values" method="_on_MaxSpeed_HSlider_value_changed"]
 [connection signal="value_changed" from="CanvasLayer/Values/MaxSpeed_HSlider" to="Player" method="_on_MaxSpeed_HSlider_value_changed"]
-[connection signal="value_changed" from="CanvasLayer/Values/JumpSpeed_HSlider" to="CanvasLayer/Values" method="_on_JumpSpeed_HSlider_value_changed"]
+[connection signal="value_changed" from="CanvasLayer/Values/MaxSpeed_HSlider" to="CanvasLayer/Values" method="_on_MaxSpeed_HSlider_value_changed"]
 [connection signal="value_changed" from="CanvasLayer/Values/JumpSpeed_HSlider" to="Player" method="_on_JumpSpeed_HSlider_value_changed"]
+[connection signal="value_changed" from="CanvasLayer/Values/JumpSpeed_HSlider" to="CanvasLayer/Values" method="_on_JumpSpeed_HSlider_value_changed"]
